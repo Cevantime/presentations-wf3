@@ -1,8 +1,9 @@
-	<aside id="presentable-icon" class="revealjs">
-		<a title="Table of Contents" href="#toc">
-			<img alt="Table des maitères" src="<?php echo base_url('assets/vendor/css/presentable/icons/revealjs.png'); ?>"/>
-		</a>
-	</aside>
+<a class="bt-home" href="<?php echo base_url(); ?>" title="Retour à l'accueil">Retour à l'accueil</a>
+<aside id="presentable-icon" class="revealjs">
+	<a title="Table of Contents" href="#toc">
+		<img alt="Table des maitères" src="<?php echo base_url('assets/vendor/css/presentable/icons/revealjs.png'); ?>"/>
+	</a>
+</aside>
 <div class="slides">
 	<section>
 		<section>
@@ -327,7 +328,7 @@ button {
 	margin: 0 auto;
 	box-sizing: border-box;
 }</code></pre>
-		<div style="font-size: 1.5em"><i class="fa fa-arrow-down"></i></div>
+			<div style="font-size: 1.5em"><i class="fa fa-arrow-down"></i></div>
 		</section>
 		<section>
 			<img src="<?php echo base_url('assets/local/images/front/capture-html-css.png'); ?>">
@@ -365,10 +366,10 @@ button {
 	<section id="js-look">
 		<h3>Exemples de codes</h3>
 		<section>
-		<p>
-			Javascript :
-		</p>
-		<pre><code class="hljs html"><?php echo htmlentities("<html>
+			<p>
+				Javascript :
+			</p>
+			<pre><code class="hljs html"><?php echo htmlentities("<html>
 	<body>
 		<p>Je suis un paragraphe !</p>
 		<p>
@@ -384,7 +385,7 @@ button {
 	</body>
 </html>"); ?>
 </code></pre>
-		<div style="font-size: 1.5em"><i class="fa fa-arrow-down"></i></div>
+			<div style="font-size: 1.5em"><i class="fa fa-arrow-down"></i></div>
 		</section>
 		<section>
 			<p class="presentable-title">Rendu</p>
