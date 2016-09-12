@@ -18,7 +18,7 @@
 	</section>
 	<section id="what-is-angular">
 		<h2>
-			Qu'est-ce qu'en Angular 2 ?
+			Qu'est-ce que Angular 2 ?
 		</h2>
 		<ul>
 			<li class="fragment">

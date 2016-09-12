@@ -43,7 +43,7 @@
 				<ul>
 					<li>Gestion des requêtes/entrées utilisateur, aiguillage (ou routing)</li>
 					<li>Dialogue avec la base de données</li>
-					<li>Envoi des données nécessaires à l'affichages des différentes pages</li>
+					<li>Envoi des données nécessaires à l'affichage des différentes pages</li>
 				</ul>
 			</li>
 			<li>
@@ -395,7 +395,7 @@ button {
 	<section id="integrateur">
 		<h2>Intégrateur frontend : un métier à part entière</h2>
 		<ul>
-			<li class="fragment">Plusieurs langages à maîtriser (et ce n'est pas prêt de s'arrêter !)</li>
+			<li class="fragment">De plus en plus de langages à apprendre (et ce n'est pas prêt de s'arrêter !)</li>
 			<li class="fragment">Des outils et librairies en constantes évolution</li>
 			<li class="fragment">La curiosité et l'adaptabilité sont souvent récompensés !</li>
 			<li class="fragment"><pre style="display: inline; font-size: 1.2em;"><code style="display: inline" class="hljs javascript">frontend < backend == false ;</code></pre></li>
