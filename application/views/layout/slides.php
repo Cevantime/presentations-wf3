@@ -23,11 +23,7 @@
 		<div data-module="reveal-init" class="reveal">
 			<?php echo $content_for_layout; ?>
 		</div>
-<!--		<aside id="presentable-icon" class="revealjs">
-			<a title="Table of Contents" href="#?">
-				<img alt="Table des maitères" src="<?php echo base_url('assets/vendor/css/presentable/icons/revealjs.png'); ?>"/>
-			</a>
-		</aside>-->
+
 		<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
 		<script src="<?php echo base_url('assets/local/js/app.js'); ?>"></script>
 	</body>

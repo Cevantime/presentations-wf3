@@ -1,3 +1,8 @@
+	<aside id="presentable-icon" class="revealjs">
+		<a title="Table of Contents" href="#toc">
+			<img alt="Table des maitères" src="<?php echo base_url('assets/vendor/css/presentable/icons/revealjs.png'); ?>"/>
+		</a>
+	</aside>
 <div class="slides">
 	<section>
 		<section>
@@ -5,7 +10,7 @@
 			<!-- Depending  on your version of reveal.js you may also
 			have a script tag in this section -->
 		</section>
-		<section>
+		<section id="toc">
 			<h2>Table des matières</h2>
 			<nav id="presentable-toc" class="revealjs"></nav>
 		</section>
@@ -28,9 +33,9 @@
 		</ul>
 	</section>
 	<section>
-		<h2>
+		<h3>
 			Le Frontend &ne; Backend
-		</h2>
+		</h3>
 		<ul>
 			<li>
 				Backend :
@@ -52,9 +57,9 @@
 	</section>
 
 	<section>
-		<h2>
+		<h3>
 			Qu'est-ce que mettre en forme les données ?
-		</h2>
+		</h3>
 		<ul>
 			<li class="fragment">
 				Organiser l'information au sein d'une même page ou sur
@@ -66,9 +71,9 @@
 		</ul>
 	</section>
 	<section>
-		<h2>
+		<h3>
 			Les technologies Frontend
-		</h2>
+		</h3>
 		<ul>
 			<li>
 				HTML <a href="#/HTML"><i class="fa fa-arraow-right"></i></a>
@@ -168,9 +173,9 @@ anonymous FTP</A> , etc.</A>
 		</section>
 	</section>
 	<section id="what-is-html">
-		<h2>
+		<h3>
 			Qu'est-ce que le HTML ?
-		</h2>
+		</h3>
 		<ul>
 			<li>
 				<label><strong>HTML :</strong></label> 
@@ -190,9 +195,8 @@ anonymous FTP</A> , etc.</A>
 		</ul>
 	</section>
 	<section id="html-look">
-		<h2>À quoi ressemble une page HTML ?</h2>
-		<pre style="font-size: 0.4em">
-			<code><?php
+		<h3>À quoi ressemble une page HTML ?</h3>
+		<pre style="font-size: 0.4em"><code><?php
 				echo htmlentities(""
 						. "<html>\n"
 						. "	<body>\n"
@@ -203,15 +207,14 @@ anonymous FTP</A> , etc.</A>
 						. "		<button>Je suis un bouton !</button>\n"
 						. "	</body>\n"
 						. "</html>");
-				?></code>
-		</pre>
+				?></code></pre>
 		<div style="font-size: 1.5em"><i class="fa fa-arrow-down"></i></div>
 		<div>
 			<img src="<?php echo base_url('assets/local/images/front/capture-html.png'); ?>" />
 		</div>
 	</section>
 	<section id="html-inline-styling">
-		<h2>La mise en forme en HTML</h2>
+		<h3>La mise en forme en HTML</h3>
 		<pre class="html hljs" style="font-size: 0.5em"><code><?php
 				echo htmlentities(""
 						. "<p style='color: lightblue'>\n "
@@ -228,7 +231,7 @@ anonymous FTP</A> , etc.</A>
 		</div>
 	</section>
 	<section id="html-limit">
-		<h2>Les limites du HTML</h2>
+		<h3>Les limites du HTML</h3>
 		<ul>
 			<li>
 				Peu adapté pour faire de la mise en forme
@@ -263,7 +266,7 @@ anonymous FTP</A> , etc.</A>
 		</ul>
 	</section>
 	<section id="css-principe">
-		<h2>Principes du CSS</h2>
+		<h3>Principes du CSS</h3>
 		<ul>
 			<li>
 				Écrits la plupart du temps dans un fichier à part appelé <em>fichier de style</em>
@@ -279,7 +282,7 @@ anonymous FTP</A> , etc.</A>
 	</section>
 	<section id="css-look">
 		<section>
-			<h2>Et ça ressemble à quoi ?</h2>
+			<h3>Et ça ressemble à quoi ?</h3>
 			<pre style="font-size: 0.4em"><code class="css hljs">html {
 	background: url(background.jpg);
 	padding: 0 20%;
@@ -330,8 +333,77 @@ button {
 			<img src="<?php echo base_url('assets/local/images/front/capture-html-css.png'); ?>">
 		</section>
 	</section>
+	<section id="javascripts">
+		<h2>Les Javascripts</h2>
+		<ul>
+			<li>Plusieurs langages de progammation : 
+				<ul>
+					<li>
+						Ecmascript
+					</li>
+					<li>
+						Dart
+					</li>
+					<li>
+						TrueScript
+					</li>
+				</ul>
+			<li><strong>Le plus commun est le Ecmascript, plus communément appelé Javascript !</strong></li>
+			<li>Ils ne servent pas qu'à faire du web !</li>
+			<li>Ils viennent s'ajouter aux technologies HTML et CSS et non les remplacer.</li>
+			<li>Ils permettent de manipuler le HTML, le CSS, bref de faire ce qu'on veut avec notre page web !</li>
+		</ul>
+	</section>
+	<section id="js-principes">
+		<h3>Comment s'en servir ?</h3>
+		<ul>
+			<li>Comme pour les CSS, ils sont inclus dans la page HTML ou bien chargés depuis un fichier externe</li>
+			<li>La plupart des javascripts sont des langages à part entière et doivent donc être appris !</li>
+			<li>Certaines librairies sont tout de même là pour nous simplifier la vie (<a href="https://jquery.com/">Jquery</a>, <a href="https://angularjs.org/">AngularJS</a>).</li>
+		</ul>
+	</section>
+	<section id="js-look">
+		<h3>Exemples de codes</h3>
+		<section>
+		<p>
+			Javascript :
+		</p>
+		<pre><code class="hljs html"><?php echo htmlentities("<html>
+	<body>
+		<p>Je suis un paragraphe !</p>
+		<p>
+			Je suis <strong>une notion forte!</strong> dans un paragraphe
+		</p>
+		<img src= \"villa.jpg\" alt=\"Je suis une image!\"/>
+		<button>Je suis un bouton !</button>
+		<script type=\"text/javascript\">
+			document.body.innerHTML = 
+			\"J'ai remplacé tout le contenu de ma page \"+
+			\"en une seule ligne!\";
+		</script>
+	</body>
+</html>"); ?>
+</code></pre>
+		<div style="font-size: 1.5em"><i class="fa fa-arrow-down"></i></div>
+		</section>
+		<section>
+			<p class="presentable-title">Rendu</p>
+			<img src="<?php echo base_url('assets/local/images/front/capture-html-javascript.png'); ?>"/>
+		</section>
+	</section>
+	<section id="integrateur">
+		<h2>Intégrateur frontend : un métier à part entière</h2>
+		<ul>
+			<li class="fragment">Plusieurs langages à maîtriser (et ce n'est pas prêt de s'arrêter !)</li>
+			<li class="fragment">Des outils et librairies en constantes évolution</li>
+			<li class="fragment">La curiosité et l'adaptabilité sont souvent récompensés !</li>
+			<li class="fragment"><pre style="display: inline; font-size: 1.2em;"><code style="display: inline" class="hljs javascript">frontend < backend == false ;</code></pre></li>
+		</ul>
+	</section>
 	<section>
-		
+		<p style="font-size: 2em;" class="presentable-title">
+			Bon courage à tous !
+		</p>
 	</section>
 </div>
 
