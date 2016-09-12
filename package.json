@@ -71,6 +71,7 @@
     "open": "0.0.5",
     "pretty-hrtime": "1.0.2",
     "require-dir": "0.3.0",
+    "reveal.js": "^3.3.0",
     "sinon": "1.17.3",
     "sinon-chai": "2.8.0",
     "webpack": "1.12.14",
