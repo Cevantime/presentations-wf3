@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="../reveal.js-3.7.0/css/reveal.css">
+	<link rel="stylesheet" href="../reveal.js-3.7.0/css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../reveal.js-3.7.0/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section id="maintitle">
+				<h1>Débogage en Symfony et PHP</h1>
+			</section>
+			<section id="debugging">
+				<h2>Le débogage ou <em>debugging</em></h2>
+				<blockquote cite="https://en.wikipedia.org/wiki/Debugging">Debugging is the process of finding and resolving defects
+					or problems within a computer program that prevent correct operation of computer software or a system. </blockquote>
+			</section>
+			<section id="definition">
+				<p>Le débogage est donc l'art de dénicher et d'éliminer les bugs, qu'ils soient physiques ou logiciels.</p>
+			</section>
+			<section id="teaching">
+				<div style="display: flex">
+					<div>
+						<h3>Un savoir difficile à transmettre</h3>
+						<ul>
+							<li>Innatendu</li>
+							<li>Contextuel</li>
+							<li>Résolvable de plusieurs façons</li>
+							<li>Efficacité qui dépend beaucoup de l'<strong>expérience</strong></li>
+						</ul>
+					</div>
+					<div class="fragment">
+						<h3>Néanmoins</h3>
+						<ul>
+							<li>Quelques démarches souvent gagnantes</li>
+							<li>Plusieurs outils <em>très</em> utiles</li>
+							<li>Conseils et trucs</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section id="whatisabug">
+				<h3>Qu'est-ce qu'un bug ?</h3>
+				<figure><img src="../assets/debugging/software_bug.jpg" alt=""></figure>
+			</section>
+			<section id="bugs">
+				<section>
+					<p>Provient à l'origine de la présence (très occasionnelle) de coléoptères dans les relais des premiers ordinateurs</p>
+				</section>
+				<section>
+					<p>Un bug : </p>
+					<ul>
+						<li>Provoque un dysfonctionnement</li>
+						<li>Est inattendu</li>
+					</ul>
+				</section>
+			</section>
+			<section id="bugsandbugs">
+				<div style="display: flex">
+					<div>
+						<h3>Bug immédiat</h3>
+						<ul>
+							<li>A déjà été vu</li>
+							<li>Simple à résoudre</li>
+							<li>Oubli ou étourderie</li>
+							<li class="fragment">Bref, ne pose pas problème</li>
+						</ul>
+					</div>
+					<div>
+						<h3><span class="fragment">Bug...</span> <span class="fragment">pas immédiat</span></h3>
+						<ul>
+							<li class="fragment">Avait l'air immédiat maiiiiis...</li>
+							<li class="fragment">Est difficile à reproduire</li>
+							<li class="fragment">N'est pas encore compris</li>
+							<li class="fragment">Cause lointaine et mystérieuse #alien</li>
+							<li class="fragment">Etc.</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section id="successfullworkflows">
+				<h2>Les démarches gagnantes</h2>
+			</section>
+			<section id="reproduce error">
+				<h3>Reproduire l'erreur</h3>
+				<ul>
+					<li>La base... ou pas</li>
+					<li>Parfois plus difficile que de résoudre le bug lui-même</li>
+					<li>Importance de la reproduction du contexte complet</li>
+				</ul>
+			</section>
+			<section id="readmessage">
+				<h3>Lire le message d'erreur</h3>
+				<ul>
+					<li>Première prise d'information</li>
+					<li>Souvent en anglais : sortez armés mais confiants</li>
+					<li>Lire le plus intégralement possible (Message, numéro de ligne, pile d'exécution)</li>
+				</ul>
+			</section>
+			<section id="justthink">
+				<h3>Réflexion</h3>
+				<ul>
+					<li class="fragment">Nécessité d'adopter un plan : utilisez ce que vous avez entre les oreilles !</li>
+					<li class="fragment">Souvent zappé par les développeurs (tiens-donc)</li>
+					<li class="fragment">Demande un peu de temps...</li>
+					<li class="fragment">Mais en fait surtout beaucoup gagner</li>
+					<li class="fragment">Faire des pauses, s'aérer, en discutez avec des collègues #Zenattitude.</li>
+				</ul>
+			</section>
+			<section id="collectinfos">
+				<h3>Collecte d'information</h3>
+				<ul>
+					<li>Pas forcément la première étape du processus de résolution</li>
+					<li>Choisir le bon outil</li>
+				</ul>
+			</section>
+			<section id="tests">
+				<h3>Faire des tests</h3>
+				<ul>
+					<li>Rien à voir avec les tests unitaires ou fonctionnels</li>
+					<li>Découle de la réflexion</li>
+					<li>Consiste à créer des scénarii en modifiant les variables d'entrée, de contexte ou même en modifiant <small style="vertical-align: baseline">un peu</small> le code source</li>
+					<li class="fragment"><strong>Puis</strong> <span>déduction</span></li>
+				</ul>
+			</section>
+			<section id="rollback">
+				<h3>Rollback, remplacement, différentiel</h3>
+				<ul>
+					<li>Remplacement du code défectueux par un autre code (éventuellement antérieur) que l'on sait fonctionnel</li>
+					<li>Établissement d'un différentiel (comparaison ligne par ligne)</li>
+				</ul>
+			</section>
+			<section id="variations">
+				<h3>Varier les approches</h3>
+				<ul>
+					<li>Changer de méthode si l'acutelle d'elle prend trop de temps</li>
+					<li>Ne pas être trop systématique</li>
+					<li>Votre cerveau gagne à être mobilisé</li>
+				</ul>
+				<aside class="notes">
+					<dl>
+						<dt>Systématique</dt><dd>privilégier toujours les mêmes solutions</dd>
+					</dl>
+				</aside>
+			</section>
+			<section id="tools">
+				<h2>Les outils</h2>
+			</section>
+			<section id="devmode">
+				<h3>Mode développement</h3>
+				<ul>
+					<li>Stack Trace</li>
+					<li>Exceptions (toutes!)</li>
+					<li>Possibilité de lire le code source directement dans le navigateur</li>
+					<li>Message d'erreur souvent indicatif</li>
+				</ul>
+			</section>
+			<section id="error">
+				<p>Exemple</p>
+				<figure>
+					<img src="../assets/debugging/erreur.png" alt="">
+				</figure>
+			</section>
+			<section id="dumpanddie">
+				<h3>Dump and die</h3>
+				<ul>
+					<li>Basique mais souvent suffisant !</li>
+					<li>Ne pas hésiter à sortir l'artillerie lourde (cf Xdebug) quand nécessaire</li>
+				</ul>
+			</section>
+			<section id="vardumper">
+				<h3>Le composant VarDumper</h3>
+				<figure><img src="../assets/debugging/var-dumper.png" alt=""></figure>
+				<figure><pre><code class="bash">composer require symfony/var-dumper --dev</code></pre></figure>
+			</section>
+			<section id="toolbar">
+				<h3>Le composant Profiler</h3>
+				<figure><img src="../assets/debugging/toolbar.png" alt=""></figure>
+				<figure><pre><code class="bash">composer require symfony/profiler-pack --dev</code></pre></figure>
+			</section>
+			<section><h3>Xdebug + CacheGrind</h3></section>
+			<section><h3>L'artillerie lourde : Xdebug debugger</h3><figure><img src="../assets/debugging/xdebug.png" alt=""></figure></section>
+		</div>
+	</div>
+
+	<script src="../reveal.js-3.7.0/lib/js/head.min.js"></script>
+	<script src="../reveal.js-3.7.0/js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: '../reveal.js-3.7.0/plugin/markdown/marked.js' },
+				{ src: '../reveal.js-3.7.0/plugin/markdown/markdown.js' },
+				{ src: '../reveal.js-3.7.0/plugin/notes/notes.js', async: true },
+				{ src: '../reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
